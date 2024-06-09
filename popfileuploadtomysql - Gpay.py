@@ -11,7 +11,7 @@ pd.set_option('display.max_columns', 200)
 pd.set_option('display.width', 200)
 
 # change filepath
-pathold = r"C:\Users\rohan\Downloads\277 prefix 17P - pop - uploaded date 9jun 5lac codes part 1.csv"
+pathold = r"C:\Users\rohan\Downloads\247 - 499s - prefix pop upload date 9jun 5lac.csv"
 pathold = pathlib.PureWindowsPath(pathold)
 path = pathold.as_posix()
 df = pd.read_csv(path, header=None, encoding='unicode_escape')
@@ -43,7 +43,7 @@ print(df.head())
 
 # GPay 500off_6Dec22_Affinity  Gpay MAH299_12Dec22  Gpay 250off_1Nov22_Open  Gpay 200off_1Dec22_Open
 # change offername
-df['filesource'] = "Gpay_Allin1Kit_1799"  # GPay 400off_01May22   example: gpay_299off_Oct # Gpay 333off_15Apr22
+df['filesource'] = "Gpay_Buy_3_499"  # GPay 400off_01May22   example: gpay_299off_Oct # Gpay 333off_15Apr22
 # couponsource
 df['couponsource'] = 'Gpay'  # example : "Gpay", "Phone Pe"
 # df['filesource'] = "Store Visit Activity"  # example: gpay_299off_Oct # Gpay 333off_15Apr22
