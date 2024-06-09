@@ -11,7 +11,7 @@ pd.set_option('display.max_columns', 200)
 pd.set_option('display.width', 200)
 
 # change filepath
-pathold = r"C:\Users\rohan\Downloads\277 prefix 17P - pop - uploaded date 4jun 5lac codes.csv"
+pathold = r"C:\Users\rohan\Downloads\277 prefix 17P - pop - uploaded date 9jun 5lac codes part 1.csv"
 pathold = pathlib.PureWindowsPath(pathold)
 path = pathold.as_posix()
 df = pd.read_csv(path, header=None, encoding='unicode_escape')
