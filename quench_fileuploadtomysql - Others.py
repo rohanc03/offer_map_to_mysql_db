@@ -10,7 +10,6 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 200)
 pd.set_option('display.width', 200)
 
-
 pathold = "D://PRASHANT//file_upload_to_mysql//QUENCH//dt_24_08_2023//Voucher Quench buy 3 mini at 499 Q3MA499 27th July.csv"
 pathold = pathlib.PureWindowsPath(pathold)
 path = pathold.as_posix()
@@ -34,14 +33,15 @@ df = df.iloc[1:, :]
 print(df.head())
 # df['vouchers'] = df['vouchers'].str.replace('\t','',regex=False)
 # print(df.head())
-df['filesource'] = "GPay_3MinisAt499_27July_23"  # example: gpay_299off_Oct # Gpay 333off_15Apr22    --- #CDT Team Manual
+df[
+    'filesource'] = "GPay_3MinisAt499_27July_23"  # example: gpay_299off_Oct # Gpay 333off_15Apr22    --- #CDT Team Manual
 df['couponsource'] = "GPay"  # example : "Gpay" NAME OF PUBLISHER --- #CDT Team
 # df['filesource'] = "Store Visit Activity"  # example: gpay_299off_Oct # Gpay 333off_15Apr22
 # df['couponsource'] = 'Store Visit Activity'  # example : "Gpay"
 
 df['filename'] = Path(path).name
 df['last_updated_date'] = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print('character length for filename is '+ str(len(Path(path).name)))
+print('character length for filename is ' + str(len(Path(path).name)))
 cols = ('vouchers', 'filesource', 'couponsource', 'filename', 'last_updated_date')
 df.columns = cols
 print(df.head())
@@ -74,7 +74,6 @@ my_data = []
 for i, row in df.iterrows():
     my_data.append(tuple(row))
 
-
 query = f"INSERT INTO vouchers.quenchvoucherstable ({cols}) VALUES (" + "%s," * (
         len(row) - 1) + "%s) ON DUPLICATE KEY UPDATE filesource = VALUES(filesource), couponsource = VALUES(couponsource), filename = VALUES(filename),last_updated_date = VALUES(last_updated_date)"
 
@@ -83,9 +82,6 @@ conn.commit()
 cur.close()
 conn.close()
 print('execute many completed')
-
-
-
 
 #
 # M8904320736965

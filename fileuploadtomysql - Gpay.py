@@ -5,11 +5,11 @@ import pandas as pd
 import pymysql
 from pymysql.constants import CLIENT
 import pathlib
+
 #
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 200)
 pd.set_option('display.width', 200)
-
 
 # pathold = r"D:\sugar\prashant_new\total_2477_625_OFF_CHEQ (1).csv"
 # pathold = r"C:\Users\rohan\Downloads\Data (60)_SUGAR HR.csv"
@@ -37,7 +37,8 @@ df = df.iloc[1:, :]
 print(df.head())
 # GPay 500off_6Dec22_Affinity  Gpay MAH299_12Dec22  Gpay 250off_1Nov22_Open  Gpay 200off_1Dec22_Open
 # offer name
-df['filesource'] = "Gpay_V2Buy3MAH999_Open_4jun24"  # GPay 400off_01May22   example: gpay_299off_Oct # Gpay 333off_15Apr22, "SUGAR HR"
+df[
+    'filesource'] = "Gpay_V2Buy3MAH999_Open_4jun24"  # GPay 400off_01May22   example: gpay_299off_Oct # Gpay 333off_15Apr22, "SUGAR HR"
 # df['filesource'] = "Magicpin_MAT Jun23"  # GPay 400off_01May22   example: gpay_299off_Oct # Gpay 333off_15Apr22
 # df['couponsource'] = 'Magicpin'  # example : "Gpay"
 # couponsource
@@ -46,10 +47,10 @@ df['couponsource'] = 'Gpay'  # example : "Gpay", "Phone Pe", "Cheq", "HR", "Zoma
 # df['couponsource'] = 'Store Visit Activity'  # example : "Gpay"
 
 df['filename'] = Path(path).name
-print('character length for filename is '+ str(len(Path(path).name)))
+print('character length for filename is ' + str(len(Path(path).name)))
 df['created_at_date'] = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 df['last_updated_date'] = datetime.datetime.now().strftime('%Y-%m-%d')
-cols = ('vouchers', 'filesource', 'couponsource', 'filename','created_at_date', 'last_updated_date')
+cols = ('vouchers', 'filesource', 'couponsource', 'filename', 'created_at_date', 'last_updated_date')
 df.columns = cols
 print(df.head())
 print(df.shape)
@@ -95,7 +96,6 @@ conn.close()
 print('execute many completed')
 
 #############################################################   END  ##################################
-
 
 
 #

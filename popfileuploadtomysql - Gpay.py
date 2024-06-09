@@ -50,7 +50,7 @@ df['couponsource'] = 'Gpay'  # example : "Gpay", "Phone Pe"
 # df['couponsource'] = 'Store Visit Activity'  # example : "Gpay"
 
 df['filename'] = Path(path).name
-print('character length for filename is '+ str(len(Path(path).name)))
+print('character length for filename is ' + str(len(Path(path).name)))
 df['last_updated_date'] = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 cols = ('vouchers', 'filesource', 'couponsource', 'filename', 'last_updated_date')
 df.columns = cols
@@ -94,7 +94,6 @@ conn.commit()
 cur.close()
 conn.close()
 print('execute many completed')
-
 
 ################################################      END     ##########################################3
 
